@@ -7,8 +7,6 @@ It is firestore wrapper with combine framework.
 
 ```Package.swift
 .package(name: "Mia", url: "https://github.com/tera-ny/Mia.git", .branch("master"))
-/// or
-.package(name: "Mia", url: "https://github.com/tera-ny/Mia.git", from: "0.0.2")
 ```
 
 ## usage
