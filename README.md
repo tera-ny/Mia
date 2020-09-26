@@ -1,12 +1,12 @@
 # Mia
 It is firestore wrapper with combine framework.
 
+❗️ this package use firebase ios sdk __6.33-spm-beta__ branch ❗️
+
 ## installation
 
 ```Package.swift
 .package(name: "Mia", url: "https://github.com/tera-ny/Mia.git", .branch("master")),
-/// or
-.package(name: "Mia", url: "https://github.com/tera-ny/Mia.git", from: "0.0.1"),
 ```
 
 ## usage
