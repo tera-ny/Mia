@@ -20,17 +20,17 @@ struct Room {
  let isActive: bool
 }
 
-class FriendsViewModel: ObservableObject {
-    @Published var friends: [Document<User>] = []
+class RoomsViewModel: ObservableObject {
+    @Published var rooms: [Document<Room>] = []
     var cancellable: AnyCancellable? = nil
     init() {
         bind()
     }
     func bind() {
         cancellable = Document<Room>.listen(query: Firestore.firestore().collection("room").whereField("friends", arrayContains: Auth.auth().currentUser!.uid).limit(to: 10)).sink(receiveCompletion: { error in
-        }, receiveValue: { [weak self] friends in
-            print("My friends..",friends.joined(separator: ","))
-            self?.friends = friends
+        }, receiveValue: { [weak self] rooms in
+            print("My friends..",rooms.friends.joined(separator: ","))
+            self?.rooms = rooms
         })
     }
 }
