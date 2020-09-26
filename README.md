@@ -21,7 +21,6 @@ struct Room {
 class FriendsViewModel: ObservableObject {
     @Published var friends: [Document<User>] = []
     var cancellable: AnyCancellable? = nil
-    @ObservedObject var authStore = AuthStore(auth: Auth.auth())
     init() {
         bind()
     }
