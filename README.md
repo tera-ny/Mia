@@ -1,4 +1,6 @@
 # Mia
+It is firestore wrapper with combine framework.
+
 ## installation
 
 ```Package.swift
