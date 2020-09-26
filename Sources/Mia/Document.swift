@@ -9,29 +9,29 @@ import FirebaseFirestoreSwift
 import FirebaseFirestore
 import Combine
 
-struct Document<Model: Codable> {
-    let ref: DocumentReference
-    let data: Model
-    static func get(collectionPath: String, id: String) -> Deferred<Future<Document<Model>, Error>> {
+public struct Document<Model: Codable> {
+    public let ref: DocumentReference
+    public let data: Model
+    public static func get(collectionPath: String, id: String) -> Deferred<Future<Document<Model>, Error>> {
         .init { () -> Future<Document<Model>, Error> in
             let document = Firestore.firestore().collection(collectionPath).document(id)
             return get(documentRef: document)
         }
     }
     
-    static func get(documentRef: DocumentReference) -> Deferred<Future<Document<Model>, Error>> {
+    public static func get(documentRef: DocumentReference) -> Deferred<Future<Document<Model>, Error>> {
         .init { () -> Future<Document<Model>, Error> in
             get(documentRef: documentRef)
         }
     }
     
-    static func listen(documentRef: DocumentReference) -> Deferred<FirestoreDocumentPublisher<Model>> {
+    public static func listen(documentRef: DocumentReference) -> Deferred<FirestoreDocumentPublisher<Model>> {
         .init { () -> FirestoreDocumentPublisher<Model> in
             listen(documentRef: documentRef)
         }
     }
     
-    static func listen(query: Query) -> Deferred<FirestoreCollectionPublisher<Model>> {
+    public static func listen(query: Query) -> Deferred<FirestoreCollectionPublisher<Model>> {
         .init { () -> FirestoreCollectionPublisher<Model> in
             listen(query: query)
         }
