@@ -19,6 +19,12 @@ public struct Document<Model: Codable> {
         }
     }
     
+    public static func get(query: Query) -> Deferred<Future<[Document<Model>], Error>> {
+        .init { () -> Future<[Document<Model>], Error> in
+            return get(query: query)
+        }
+    }
+    
     public static func get(documentRef: DocumentReference) -> Deferred<Future<Document<Model>, Error>> {
         .init { () -> Future<Document<Model>, Error> in
             get(documentRef: documentRef)
